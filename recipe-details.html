@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рецепт - Кулинарный сайт</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/recipe-details.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <h1>SmartMenu</h1>
+    </div>
+    
+    <nav>
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="/recipes.html">Рецепты</a></li>
+        </ul>
+      </div>
+      
+      <div class="nav-right">
+        <div class="theme-toggle desktop-only">
+          <button class="theme-toggle-btn" aria-label="Toggle theme">
+            <span class="toggle-thumb">
+              <span class="sun-icon">☀️</span>
+              <span class="moon-icon">🌙</span>
+            </span>
+          </button>
+        </div>
+        
+        <button class="burger-menu" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+    
+    <!-- Мобильное меню -->
+    <div class="mobile-menu">
+      <ul class="mobile-nav-links">
+        <li><a href="#">Рецепты</a></li>
+        <li><a href="#">Блог</a></li>
+      </ul>
+      <div class="theme-toggle mobile-only">
+        <button class="theme-toggle-btn" aria-label="Toggle theme">
+          <span class="toggle-thumb">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-image-container">
+        <img id="recipe-image" src="" alt="" class="recipe-main-image">
+      </div>
+      
+      <div class="recipe-meta-sidebar">
+        <div class="meta-item">
+          <span class="meta-icon">⏱️</span>
+          <span id="cooking-time"></span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-icon">🏷️</span>
+          <div id="recipe-category"></div>
+        </div>
+        
+        <div id="diet-tags" class="diet-tags"></div>
+        
+        <div class="nutrition-facts">
+          <div class="nutrition-item">
+            <span class="nutrition-value" id="calories"></span>
+            <span class="nutrition-label">Ккал</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-value" id="protein"></span>
+            <span class="nutrition-label">Белки</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-value" id="fat"></span>
+            <span class="nutrition-label">Жиры</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-value" id="carbs"></span>
+            <span class="nutrition-label">Углеводы</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="recipe-info">
+      <h1 id="recipe-title"></h1>
+      <p id="recipe-description" class="recipe-description"></p>
+    </div>
+    
+    <div class="recipe-content">
+      <div class="ingredients-and-servings">
+        <section class="ingredients-section">
+          <div class="ingredients-header">
+            <h2>Ингредиенты</h2>
+            <div class="servings-control-container">
+              <div class="servings-control">
+                <span>Порции:</span>
+                <button id="decrease-serving">-</button>
+                <span id="servings-count">2</span>
+                <button id="increase-serving">+</button>
+              </div>
+            </div>
+          </div>
+          <ul id="ingredients-list" class="ingredients-list"></ul>
+        </section>
+      </div>
+      
+      <section class="instructions-section">
+        <h2>Инструкция приготовления</h2>
+        <ol id="instructions-list" class="instructions-list"></ol>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 SmartMenu</p>
+  </footer>
+
+  <script src="js/header.js"></script>
+  <script src="js/recipe-details.js"></script>
+</body>
+</html>
