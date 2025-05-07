@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рецепты - Кулинарный сайт</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/recipes.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <h1>SmartMenu</h1>
+        </div>
+        
+        <nav>
+          <div class="nav-center">
+            <ul class="nav-links">
+              <li><a href="#">Рецепты</a></li>
+            </ul>
+          </div>
+          
+          <div class="nav-right">
+            <div class="theme-toggle desktop-only">
+              <button class="theme-toggle-btn" aria-label="Toggle theme">
+                <span class="toggle-thumb">
+                  <span class="sun-icon">☀️</span>
+                  <span class="moon-icon">🌙</span>
+                </span>
+              </button>
+            </div>
+            
+            <button class="burger-menu" aria-label="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </nav>
+        
+        <!-- Мобильное меню -->
+        <div class="mobile-menu">
+          <ul class="mobile-nav-links">
+            <li><a href="#">Рецепты</a></li>
+            <li><a href="#">Блог</a></li>
+          </ul>
+          <div class="theme-toggle mobile-only">
+            <button class="theme-toggle-btn" aria-label="Toggle theme">
+              <span class="toggle-thumb">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+  <main class="recipes-page">
+    <h1>Все рецепты</h1>
+    
+    <!-- Фильтры и сортировка -->
+    <div class="filters-container">
+      <div class="filter-group">
+        <label for="category-filter">Категория:</label>
+        <select id="category-filter">
+          <option value="">Все</option>
+          <option value="завтрак">Завтрак</option>
+          <option value="обед">Обед</option>
+          <option value="ужин">Ужин</option>
+          <option value="десерт">Десерт</option>
+          <option value="перекус">Перекус</option>
+          <option value="гарнир">Гарнир</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="time-filter">Время приготовления:</label>
+        <select id="time-filter">
+          <option value="">Любое</option>
+          <option value="fast">До 15 мин</option>
+          <option value="medium">15-30 мин</option>
+          <option value="slow">Более 30 мин</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="diet-filter">Диета:</label>
+        <select id="diet-filter">
+          <option value="">Любая</option>
+          <option value="вегетарианская">Вегетарианская</option>
+          <option value="веганская">Веганская</option>
+          <option value="безглютеновая">Безглютеновая</option>
+          <option value="высокобелковая">Высокобелковая</option>
+          <option value="низкоуглеводная">Низкоуглеводная</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="calories-filter">Калорийность:</label>
+        <select id="calories-filter">
+          <option value="">Любая</option>
+          <option value="low">До 200 ккал</option>
+          <option value="medium">200-400 ккал</option>
+          <option value="high">Более 400 ккал</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="sort-by">Сортировка:</label>
+        <select id="sort-by">
+          <option value="default">По умолчанию</option>
+          <option value="calories-asc">Калории (по возрастанию)</option>
+          <option value="calories-desc">Калории (по убыванию)</option>
+          <option value="time-asc">Время (по возрастанию)</option>
+          <option value="time-desc">Время (по убыванию)</option>
+        </select>
+      </div>
+
+      <button id="reset-filters">Сбросить фильтры</button>
+    </div>
+
+    <!-- Контейнер для рецептов -->
+    <div class="recipes-container" id="recipes-container">
+      <!-- Рецепты будут загружаться здесь -->
+    </div>
+
+    <!-- Пагинация -->
+    <div class="pagination" id="pagination">
+      <!-- Кнопки пагинации будут добавляться здесь -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 SmartMenu</p>
+  </footer>
+
+  <script src="js/header.js"></script>
+  <script src="js/recipes.js"></script>
+</body>
+</html>
