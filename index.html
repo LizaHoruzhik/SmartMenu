@@ -11,17 +11,21 @@
   <link rel="stylesheet" href="css/categories.css">
 </head>
 <body>
-  <!-- Header Section -->
   <header>
     <div class="logo">
       <h1>SmartMenu</h1>
     </div>
     
     <nav>
-      <div class="nav-center">
+      <div class="nav-left">
         <ul class="nav-links">
           <li><a href="/recipes.html">Рецепты</a></li>
         </ul>
+        
+        <div class="search-container desktop-only">
+          <input type="text" id="search-input" placeholder="Поиск рецептов...">
+          <div id="search-results" class="search-results"></div>
+        </div>
       </div>
       
       <div class="nav-right">
@@ -48,6 +52,10 @@
         <li><a href="#">Рецепты</a></li>
         <li><a href="#">Блог</a></li>
       </ul>
+      <div class="search-container mobile-only">
+        <input type="text" id="mobile-search-input" placeholder="Поиск рецептов...">
+        <div id="mobile-search-results" class="search-results"></div>
+      </div>
       <div class="theme-toggle mobile-only">
         <button class="theme-toggle-btn" aria-label="Toggle theme">
           <span class="toggle-thumb">
