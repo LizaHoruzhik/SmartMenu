@@ -9,21 +9,25 @@
   <link rel="stylesheet" href="css/recipe-details.css">
 </head>
 <body>
-  <!-- Header Section -->
   <header>
     <div class="logo">
       <h1>SmartMenu</h1>
     </div>
     
     <nav>
-      <div class="nav-center">
+      <div class="nav-left">
         <ul class="nav-links">
-          <li><a href="/recipes.html">Рецепты</a></li>
+          <li><a href="/recipes.html" class="nav-link">Рецепты</a></li>
         </ul>
+        
+        <div class="search-container desktop">
+          <input type="text" id="search-input" class="search-input" placeholder="Поиск рецептов...">
+          <div id="search-results" class="search-results"></div>
+        </div>
       </div>
       
       <div class="nav-right">
-        <div class="theme-toggle desktop-only">
+        <div class="theme-toggle desktop">
           <button class="theme-toggle-btn" aria-label="Toggle theme">
             <span class="toggle-thumb">
               <span class="sun-icon">☀️</span>
@@ -33,20 +37,23 @@
         </div>
         
         <button class="burger-menu" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
         </button>
       </div>
     </nav>
     
     <!-- Мобильное меню -->
     <div class="mobile-menu">
-      <ul class="mobile-nav-links">
-        <li><a href="#">Рецепты</a></li>
-        <li><a href="#">Блог</a></li>
+      <ul class="nav-links">
+        <li><a href="/recipes.html" class="nav-link">Рецепты</a></li>
       </ul>
-      <div class="theme-toggle mobile-only">
+      <div class="search-container mobile">
+        <input type="text" id="mobile-search-input" class="search-input" placeholder="Поиск рецептов...">
+        <div id="mobile-search-results" class="search-results"></div>
+      </div>
+      <div class="theme-toggle mobile">
         <button class="theme-toggle-btn" aria-label="Toggle theme">
           <span class="toggle-thumb">
             <span class="sun-icon">☀️</span>

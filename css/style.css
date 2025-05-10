@@ -3,7 +3,7 @@
   --background: white;
   --main: #5E7E5E;
   --text: #333;
-  --text-on-main: white;
+  --text-on-main: #5E7E5E;
   --border: rgb(212, 212, 212);
   --header-bg: white;
   --nav-link: #5E7E5E;
@@ -17,14 +17,14 @@
   /* Dark theme colors */
   --background: #5E7E5E;
   --main: white;
-  --text: #333;
+  --text: white;
   --text-on-main: white;
-  --border: rgb(212, 212, 212);
+  --border: white;
   --header-bg: #5E7E5E;
   --nav-link: white;
   --burger-color: white;
-  --card-bg: white;
-  --footer-bg: white;
+  --card-bg: #678b67;
+  --footer-bg: #5E7E5E;
   color-scheme: dark;
 }
 
@@ -32,7 +32,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
@@ -46,9 +45,8 @@ body {
 /* Header styles */
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 10px 20px;
   background-color: var(--header-bg);
   position: sticky;
   top: 0;
@@ -57,41 +55,60 @@ header {
 }
 
 .logo {
-  color: var(--main);
+  color: var(--text-on-main);
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px){
+.logo {
+    font-size: 1.1rem;
+}
+}
+  
+  
+
+@media (max-width: 576px) {
+  .logo {
+    font-size: 1rem;
+  }
 }
 
 /* Navigation */
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-grow: 1;
+  position: relative;
 }
 
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 20px;
+  flex-grow: 1;
+  justify-content: end;
 }
 
 .nav-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+  margin-left: auto;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: end;
   margin: 0;
   padding: 0;
+  flex-grow: 1;
 }
 
-.nav-links a {
+.nav-link {
   text-decoration: none;
   font-size: 1.2rem;
   color: var(--nav-link);
@@ -99,9 +116,11 @@ nav {
   padding: 5px 0;
   position: relative;
   white-space: nowrap;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
-.nav-links a::after {
+.nav-link::after {
   content: '';
   position: absolute;
   width: 0;
@@ -109,10 +128,14 @@ nav {
   background: var(--main);
   bottom: 0;
   left: 0;
-  transition: width 0.3s;
+  transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after {
+.nav-link:hover {
+  transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
   width: 100%;
 }
 
@@ -120,27 +143,40 @@ nav {
 .search-container {
   position: relative;
   min-width: 250px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
-.search-container.desktop-only {
-  margin-left: 20px;
-}
-
-#search-input, #mobile-search-input {
-  width: 100%;
+.search-input {
+  width: 50%;
   padding: 8px 15px;
   border: 1px solid var(--border);
   border-radius: 20px;
   background-color: var(--background);
-  color: var(--text);
   font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--main);
+  transform: scale(1.02);
+}
+
+.search-input::placeholder {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.search-container.mobile {
+  justify-content: start;
 }
 
 .search-results {
   position: absolute;
   top: 100%;
-  left: 0;
-  right: 0;
+  width: 50%; /* Такая же ширина как у search-input */
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -149,6 +185,9 @@ nav {
   display: none;
   max-height: 300px;
   overflow-y: auto;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 .search-results a {
@@ -157,11 +196,12 @@ nav {
   color: var(--text);
   text-decoration: none;
   border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
 }
 
 .search-results a:hover {
   background-color: var(--main);
-  color: var(--text-on-main);
+  color: var(--background);
 }
 
 .search-results a:last-child {
@@ -203,6 +243,12 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-thumb {
@@ -258,9 +304,14 @@ nav {
   height: 24px;
   width: 30px;
   z-index: 101;
+  transition: all 0.3s ease;
 }
 
-.burger-menu span {
+.burger-menu:hover {
+  transform: scale(1.1);
+}
+
+.burger-line {
   display: block;
   width: 100%;
   height: 3px;
@@ -269,16 +320,16 @@ nav {
   transform-origin: center;
 }
 
-.burger-menu.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+.burger-menu.open .burger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
 }
 
-.burger-menu.open span:nth-child(2) {
+.burger-menu.open .burger-line:nth-child(2) {
   opacity: 0;
 }
 
-.burger-menu.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+.burger-menu.open .burger-line:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
 }
 
 /* Mobile menu */
@@ -302,7 +353,7 @@ nav {
   transform: translateY(0);
 }
 
-.mobile-nav-links {
+.mobile-menu .nav-links {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -310,15 +361,11 @@ nav {
   margin-bottom: 15px;
 }
 
-.mobile-nav-links a {
+.mobile-menu .nav-link {
   text-decoration: none;
   font-size: 1.2rem;
   color: var(--nav-link);
   font-weight: bold;
-}
-
-.theme-toggle.mobile-only {
-  display: none;
 }
 
 /* Sections */
@@ -344,44 +391,28 @@ footer {
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
-  .nav-left {
-    gap: 10px;
-  }
-  
-  .search-container.desktop-only {
+@media (max-width: 768px) {  
+  .nav-links {
     display: none;
   }
-  
-  .nav-links {
-    gap: 10px;
+
+  .search-container.desktop {
+    display: none;
   }
   
   .burger-menu {
     display: flex;
   }
   
-  .theme-toggle.desktop-only {
+  .theme-toggle.desktop {
     display: none;
   }
   
-  .theme-toggle.mobile-only {
+  .theme-toggle.mobile {
     display: block;
   }
   
   .mobile-menu .search-container {
     margin: 15px 0;
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .recipe-card, .blog-post, .category-card {
-    width: 100%;
-  }
-
-  .carousel-item img {
-    height: 300px;
   }
 }
