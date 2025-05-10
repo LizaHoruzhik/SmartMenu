@@ -66,6 +66,11 @@ header {
   transform: scale(1.05);
 }
 
+.logo-link{
+  text-decoration: none;
+  color: var(--text-on-main);
+}
+
 @media (max-width: 768px){
 .logo {
     font-size: 1.1rem;
