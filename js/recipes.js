@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     let allRecipes = [];
     let filteredRecipes = [];
-    const recipesPerPage = 20;
+    const recipesPerPage = 18;
     let currentPage = 1;
     
     // DOM элементы
@@ -154,54 +154,102 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Отрисовка пагинации
-    function renderPagination() {
-      const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
-      paginationContainer.innerHTML = '';
-      
-      if (totalPages <= 1) return;
-      
-      // Кнопка "Назад"
-      const prevBtn = document.createElement('button');
-      prevBtn.className = 'page-btn';
-      prevBtn.textContent = '←';
-      prevBtn.disabled = currentPage === 1;
-      prevBtn.addEventListener('click', () => {
-        if (currentPage > 1) {
-          currentPage--;
-          renderRecipes();
-          renderPagination();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      });
-      paginationContainer.appendChild(prevBtn);
-      
-      // Нумерация страниц
-      for (let i = 1; i <= totalPages; i++) {
-        const pageBtn = document.createElement('button');
-        pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-        pageBtn.textContent = i;
-        pageBtn.addEventListener('click', () => {
-          currentPage = i;
-          renderRecipes();
-          renderPagination();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        paginationContainer.appendChild(pageBtn);
-      }
-      
-      // Кнопка "Вперед"
-      const nextBtn = document.createElement('button');
-      nextBtn.className = 'page-btn';
-      nextBtn.textContent = '→';
-      nextBtn.disabled = currentPage === totalPages;
-      nextBtn.addEventListener('click', () => {
-        if (currentPage < totalPages) {
-          currentPage++;
-          renderRecipes();
-          renderPagination();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      });
-      paginationContainer.appendChild(nextBtn);
+function renderPagination() {
+  const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
+  paginationContainer.innerHTML = '';
+  
+  if (totalPages <= 1) return;
+  
+  // Кнопка "Назад"
+  const prevBtn = document.createElement('button');
+  prevBtn.className = 'page-btn';
+  prevBtn.innerHTML = '&larr;';
+  prevBtn.disabled = currentPage === 1;
+  prevBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderRecipes();
+      renderPagination();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  });
+  paginationContainer.appendChild(prevBtn);
+  
+  // Нумерация страниц
+  const maxVisiblePages = 5;
+  let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+  let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+  
+  if (endPage - startPage + 1 < maxVisiblePages) {
+    startPage = Math.max(1, endPage - maxVisiblePages + 1);
+  }
+  
+  if (startPage > 1) {
+    const firstPageBtn = document.createElement('button');
+    firstPageBtn.className = 'page-btn';
+    firstPageBtn.textContent = '1';
+    firstPageBtn.addEventListener('click', () => {
+      currentPage = 1;
+      renderRecipes();
+      renderPagination();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    paginationContainer.appendChild(firstPageBtn);
+    
+    if (startPage > 2) {
+      const ellipsis = document.createElement('span');
+      ellipsis.className = 'pagination-ellipsis';
+      ellipsis.textContent = '...';
+      paginationContainer.appendChild(ellipsis);
+    }
+  }
+  
+  for (let i = startPage; i <= endPage; i++) {
+    const pageBtn = document.createElement('button');
+    pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+    pageBtn.textContent = i;
+    pageBtn.addEventListener('click', () => {
+      currentPage = i;
+      renderRecipes();
+      renderPagination();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    paginationContainer.appendChild(pageBtn);
+  }
+  
+  if (endPage < totalPages) {
+    if (endPage < totalPages - 1) {
+      const ellipsis = document.createElement('span');
+      ellipsis.className = 'pagination-ellipsis';
+      ellipsis.textContent = '...';
+      paginationContainer.appendChild(ellipsis);
+    }
+    
+    const lastPageBtn = document.createElement('button');
+    lastPageBtn.className = 'page-btn';
+    lastPageBtn.textContent = totalPages;
+    lastPageBtn.addEventListener('click', () => {
+      currentPage = totalPages;
+      renderRecipes();
+      renderPagination();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    paginationContainer.appendChild(lastPageBtn);
+  }
+  
+  // Кнопка "Вперед"
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'page-btn';
+  nextBtn.innerHTML = '&rarr;';
+  nextBtn.disabled = currentPage === totalPages;
+  nextBtn.addEventListener('click', () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderRecipes();
+      renderPagination();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+  paginationContainer.appendChild(nextBtn);
+}
   });
