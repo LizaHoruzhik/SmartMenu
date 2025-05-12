@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Создание карточки рецепта
+    // Создание карточки рецепта (обновлённая версия с калориями и временем)
     function createRecipeCard(recipe) {
         const card = document.createElement('div');
         card.className = 'recipe-card';
@@ -67,12 +67,19 @@ document.addEventListener('DOMContentLoaded', function() {
                         recipe.image : 
                         `img/recipes/${recipe.image}`;
         
+        // Форматирование времени и калорий (из 2 варианта)
+        const cookingTime = recipe.cookingTime || 'Время не указано';
+        const calories = recipe.calories ? `${recipe.calories} ккал` : 'Калории не указаны';
+        
         card.innerHTML = `
             <a href="recipe-details.html?id=${recipe.id}" class="recipe-link" aria-label="Рецепт: ${recipe.title}">
                 <img src="${imageSrc}" alt="${recipe.title}" class="recipe-image" loading="lazy">
                 <div class="recipe-content">
                     <h3 class="recipe-title">${recipe.title}</h3>
-                    <p class="cooking-time">${recipe.cookingTime}</p>
+                    <div class="recipe-meta">
+                        <span>${cookingTime}</span>
+                        <span>${calories}</span>
+                    </div>
                     ${renderDietTags(recipe.diet)}
                 </div>
             </a>
