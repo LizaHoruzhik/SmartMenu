@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     let allRecipes = [];
     let filteredRecipes = [];
-    const recipesPerPage = 18;
+    const recipesPerPage = 24;
     let currentPage = 1;
     
     // DOM элементы
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
       window.history.pushState({}, '', url);
     }
     
-    // Отрисовка рецептов
+    // Отрисовка рецептов с применением стилей
     function renderRecipes() {
       const start = (currentPage - 1) * recipesPerPage;
       const end = start + recipesPerPage;
@@ -148,6 +148,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
+      // Создаем контейнер для карточек с grid-разметкой
+      const cardsGrid = document.createElement('div');
+      cardsGrid.className = 'recipes-grid';
+      
       recipesToShow.forEach(recipe => {
         const recipeCard = document.createElement('div');
         recipeCard.className = 'recipe-card';
@@ -155,29 +159,61 @@ document.addEventListener('DOMContentLoaded', function() {
         const cookingTime = recipe.cookingTime || 'Время не указано';
         const calories = recipe.calories ? `${recipe.calories} ккал` : 'Калории не указаны';
         
-        recipeCard.innerHTML = `
-          <a href="recipe-details.html?id=${recipe.id}">
-            <img src="${recipe.image}" alt="${recipe.title}" class="recipe-image">
-            <div class="recipe-content">
-              <h3 class="recipe-title">${recipe.title}</h3>
-              <div class="recipe-meta">
-                <span>${cookingTime}</span>
-                <span>${calories}</span>
-              </div>
-              ${recipe.diet && recipe.diet.length > 0 ? `
-                <div class="recipe-diet">
-                  ${recipe.diet.map(diet => `<span class="diet-tag">${diet}</span>`).join('')}
-                </div>
-              ` : ''}
-            </div>
-          </a>
-        `;
+        const recipeLink = document.createElement('a');
+        recipeLink.href = `recipe-details.html?id=${recipe.id}`;
+        recipeLink.className = 'recipe-link';
         
-        recipesContainer.appendChild(recipeCard);
+        const recipeImage = document.createElement('img');
+        recipeImage.src = recipe.image;
+        recipeImage.alt = recipe.title;
+        recipeImage.className = 'recipe-image';
+        
+        const recipeContent = document.createElement('div');
+        recipeContent.className = 'recipe-content';
+        
+        const recipeTitle = document.createElement('h3');
+        recipeTitle.className = 'recipe-title';
+        recipeTitle.textContent = recipe.title;
+        
+        const recipeMeta = document.createElement('div');
+        recipeMeta.className = 'recipe-meta';
+        
+        const timeSpan = document.createElement('span');
+        timeSpan.textContent = cookingTime;
+        
+        const caloriesSpan = document.createElement('span');
+        caloriesSpan.textContent = calories;
+        
+        recipeMeta.appendChild(timeSpan);
+        recipeMeta.appendChild(caloriesSpan);
+        
+        recipeContent.appendChild(recipeTitle);
+        recipeContent.appendChild(recipeMeta);
+        
+        if (recipe.diet && recipe.diet.length > 0) {
+          const dietTags = document.createElement('div');
+          dietTags.className = 'diet-tags';
+          
+          recipe.diet.forEach(diet => {
+            const dietTag = document.createElement('span');
+            dietTag.className = 'diet-tag';
+            dietTag.textContent = diet;
+            dietTags.appendChild(dietTag);
+          });
+          
+          recipeContent.appendChild(dietTags);
+        }
+        
+        recipeLink.appendChild(recipeImage);
+        recipeLink.appendChild(recipeContent);
+        recipeCard.appendChild(recipeLink);
+        cardsGrid.appendChild(recipeCard);
       });
+      
+      recipesContainer.appendChild(cardsGrid);
     }
     
-    // Отрисовка пагинации
+    // Отрисовка пагинации (остается без изменений)
     function renderPagination() {
       const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
       paginationContainer.innerHTML = '';

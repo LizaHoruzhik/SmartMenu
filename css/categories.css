@@ -54,38 +54,3 @@
     margin: 0;
     text-align: center;
   }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .category-cards {
-      gap: 20px;
-    }
-    
-    .category-card {
-      width: 130px;
-    }
-    
-    .category-img-container {
-      width: 100px;
-      height: 100px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .category-cards {
-      gap: 15px;
-    }
-    
-    .category-card {
-      width: 110px;
-    }
-    
-    .category-img-container {
-      width: 80px;
-      height: 80px;
-    }
-    
-    .category-card p {
-      font-size: 1rem;
-    }
-  }
