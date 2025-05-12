@@ -76,8 +76,6 @@ header {
     font-size: 1.1rem;
 }
 }
-  
-  
 
 @media (max-width: 576px) {
   .logo {
@@ -107,10 +105,10 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
-  justify-content: end;
+  justify-content: space-around;
   margin: 0;
   padding: 0;
-  flex-grow: 1;
+  flex-grow: 2;
 }
 
 .nav-link {
@@ -147,15 +145,21 @@ nav {
 /* Search styles */
 .search-container {
   position: relative;
-  min-width: 250px;
-  flex-grow: 1;
+  min-width: 150px;
+  margin: 0;
+  padding: 0 10px;
   display: flex;
   justify-content: center;
 }
 
+.search-container.mobile{
+  padding: 0;
+  max-width: 250px;
+}
+
 .search-input {
-  width: 50%;
-  padding: 8px 15px;
+  width: 100%;
+  padding: 8px 10px;
   border: 1px solid var(--border);
   border-radius: 20px;
   background-color: var(--background);
@@ -181,7 +185,7 @@ nav {
 .search-results {
   position: absolute;
   top: 100%;
-  width: 50%; /* Такая же ширина как у search-input */
+  width: 100%;
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -508,6 +512,66 @@ h2 {
   background-color: var(--main);
   color: var(--background);
   transform: translateY(-2px);
+}
+
+/* Notification Styles */
+.subscription-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--main);
+  color: var(--background);
+  padding: 15px 25px;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  max-width: 350px;
+}
+
+.subscription-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.subscription-notification__icon {
+  font-size: 1.5rem;
+}
+
+.subscription-notification__text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Close button */
+.subscription-notification__close {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 15px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.subscription-notification__close:hover {
+  opacity: 1;
+}
+
+/* Анимация исчезновения */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.subscription-notification.hide {
+  animation: fadeOut 0.5s ease forwards;
 }
 
 /* Copyright Section */
