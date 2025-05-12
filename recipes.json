@@ -7,21 +7,25 @@
       "category": "завтрак",
       "diet": ["вегетарианская", "безглютеновая"],
       "ingredients": [
-        { "name": "овсяные хлопья", "amount": "100", "unit": "г" },
-        { "name": "молоко", "amount": "200", "unit": "мл" },
-        { "name": "мед", "amount": "20", "unit": "г" },
-        { "name": "клубника", "amount": "50", "unit": "г" }
+        { "name": "овсяные хлопья", "amount": "25", "unit": "г" },
+        { "name": "молоко", "amount": "150", "unit": "мл" },
+        { "name": "ягоды", "amount": "25", "unit": "г" },
+        { "name": "сливочное масло", "amount": "25", "unit": "г" },
+        { "name": "сахар", "amount": "0.5", "unit": "ч. л." },
+        { "name": "соль", "amount": "0.1", "unit": "ч. л." }
       ],
       "steps": [
-        "Доведите молоко до кипения.",
-        "Добавьте овсяные хлопья, варите 5 минут.",
-        "Подавайте с медом и ягодами."
+        "Подготовьте продукты. Хлопья возьмите любые — подойдут и моментальной, и долгой варки. Это зависит от ваших предпочтений, я взяла со временем варки 5 минут. Жирность молока может быть любая. Главное, чтобы молоко было вкусное и натуральное. Ягоды подойдут как свежие, так и замороженные — их можете предварительно не размораживать. Их набор также может быть любым.",
+        "Молоко налейте в сотейник или кастрюлю, подходящую для варки каши — лучше, если она будет с толстым дном и не эмалированной. Поставьте кастрюлю на огонь и доведите до кипения на среднем огне. Всыпьте сахар, соль и овсяные хлопья, перемешайте. Сделайте огонь небольшим и оставьте кашу вариться.",
+        "Время от времени помешивайте ее. Если у вас замороженные ягоды, то всыпьте их в кашу через пару минут варки. Если свежие — то в самом конце. Я взяла клубнику, малину и ежевику, а вообще подойдут любые, без косточек. Если ягоды сами по себе кислые, то увеличьте количество сахара.",
+        "Варите кашу на маленьком огне до готовности — хлопья должны стать мягкими, а сама каша загустеть. Отталкивайтесь от времени, которое указано на коробке с овсянкой. Не забывайте ее помешивать. Когда каша будет готова, огонь выключите и положите в нее сливочное масло.",
+        "Перемешайте, накройте кастрюлю крышкой и дайте каше настояться минут 10 — овсянка дополнительно потомится и впитает в себя масло. Подавайте кашу к столу. Приятного аппетита!"
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
-      "calories": 280,
-      "protein": "8",
-      "fat": "5",
-      "carbs": "50"
+      "image": "https://i.pinimg.com/736x/d6/dc/1b/d6dc1b800eb1d50845874a01429b2482.jpg",
+      "calories": 123,
+      "protein": "4",
+      "fat": "6",
+      "carbs": "15"
     },
     {
       "id": 2,
@@ -30,21 +34,25 @@
       "category": "завтрак",
       "diet": ["высокобелковая"],
       "ingredients": [
-        { "name": "яйца", "amount": "3", "unit": "шт" },
-        { "name": "помидор", "amount": "1", "unit": "шт" },
+        { "name": "яйца", "amount": "2", "unit": "шт" },
+        { "name": "молоко", "amount": "25", "unit": "мл" },
+        { "name": "помидоры", "amount": "0.5", "unit": "шт" },
         { "name": "болгарский перец", "amount": "0.5", "unit": "шт" },
-        { "name": "оливковое масло", "amount": "10", "unit": "мл" }
+        { "name": "специи", "amount": "", "unit": "" }
       ],
       "steps": [
-        "Взбейте яйца.",
-        "Обжарьте овощи 2 минуты.",
-        "Залейте яйцами, жарьте до готовности."
+        "Перец нарежьте кубиками и обжарьте на масле в течение 3-4 минут.",
+        "Затем добавьте помидоры.",
+        "В яйца влейте молоко и перемешайте.",
+        "Добавьте специи.",
+        "Залейте овощи яичной смесью и накройте крышкой. Жарьте на среднем огне до готовности.",
+        "Перед подачей добавьте кунжут."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
-      "calories": 220,
-      "protein": "15",
-      "fat": "12",
-      "carbs": "8"
+      "image": "https://i.pinimg.com/736x/ad/66/98/ad66981d3b50be2d6793fc9627e012da.jpg",
+      "calories": 70,
+      "protein": "5",
+      "fat": "5",
+      "carbs": "4"
     },
     {
       "id": 3,
@@ -64,7 +72,7 @@
         "Добавьте оливки и фету.",
         "Заправьте маслом."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/77/10/90/771090f069bd689437e6042a8b240ea2.jpg",
       "calories": 180,
       "protein": "6",
       "fat": "14",
@@ -86,7 +94,7 @@
         "Обжарьте грудку 10 минут.",
         "Добавьте брокколи и чеснок, тушите 5 минут."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/82/b3/e1/82b3e1d864cfdc51adcdc62b163de377.jpg",
       "calories": 250,
       "protein": "30",
       "fat": "8",
@@ -108,7 +116,7 @@
         "Смешайте ингредиенты в блендере.",
         "Подавайте охлажденным."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/9a/da/ef/9adaef00508d0bb57bdd8c9d152ac360.jpg",
       "calories": 150,
       "protein": "3",
       "fat": "2",
@@ -131,7 +139,7 @@
         "Добавьте воду, варите 20 минут.",
         "Взбейте со сливками."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/42/ae/f4/42aef485e3f590ec5325084d65fc3233.jpg",
       "calories": 120,
       "protein": "2",
       "fat": "5",
@@ -154,7 +162,7 @@
         "Разомните авокадо с солью и лимоном.",
         "Намажьте на тосты."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/34/c3/0b/34c30b0ae57efab8ed427626d118fd85.jpg",
       "calories": 200,
       "protein": "5",
       "fat": "12",
@@ -177,7 +185,7 @@
         "Обжарьте бекон.",
         "Смешайте с яйцами и сыром."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/d2/24/14/d22414c0ad8d77be9e73e51f67e9de10.jpg",
       "calories": 450,
       "protein": "20",
       "fat": "18",
@@ -200,7 +208,7 @@
         "Обжарьте овощи.",
         "Смешайте с киноа."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/b4/ae/a6/b4aea6d579c5b6e0a2d8c233547704d4.jpg",
       "calories": 220,
       "protein": "8",
       "fat": "7",
@@ -222,7 +230,7 @@
         "Взбейте сливки с сахаром.",
         "Смешайте и охладите 2 часа."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/62/4e/28/624e28a64b69fb3cb8f19e86bf69d515.jpg",
       "calories": 320,
       "protein": "4",
       "fat": "22",
@@ -245,7 +253,7 @@
         "Обжарьте креветки с чесноком.",
         "Подавайте с лимоном."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/5c/0c/7a/5c0c7a6a28133968210e1a0ac941dfea.jpg",
       "calories": 300,
       "protein": "25",
       "fat": "5",
@@ -267,7 +275,7 @@
         "Смешайте все ингредиенты.",
         "Выпекайте 30 минут при 180°C."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/c6/3b/b1/c63bb1540cabe85531e52909a5eb9b36.jpg",
       "calories": 200,
       "protein": "15",
       "fat": "8",
@@ -290,7 +298,7 @@
         "Жарьте на гриле 7 минут с каждой стороны.",
         "Подавайте с лимоном."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/31/89/f8/3189f87abfdbdd7de58f371ec521e3cb.jpg",
       "calories": 280,
       "protein": "25",
       "fat": "18",
@@ -312,7 +320,7 @@
         "Нарежьте фрукты кубиками.",
         "Заправьте медом."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/8a/45/05/8a4505ca2b992bc09fef8b9f3da77742.jpg",
       "calories": 120,
       "protein": "2",
       "fat": "0.5",
@@ -334,7 +342,7 @@
         "Обжарьте стейк 4 минуты с каждой стороны.",
         "Дайте отдохнуть 5 минут перед подачей."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/22/bc/cd/22bccdc93e173132d14923c14d10d4b4.jpg",
       "calories": 350,
       "protein": "40",
       "fat": "20",
@@ -357,7 +365,7 @@
         "Сформируйте сырники.",
         "Обжарьте до золотистой корочки."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/b7/53/d9/b753d9f56889aa1578480612367bfe21.jpg",
       "calories": 180,
       "protein": "12",
       "fat": "5",
@@ -379,7 +387,7 @@
         "Нарежьте овощи.",
         "Тушите 25 минут под крышкой."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/74/f4/68/74f4685e9d1bfa89411f7dcc2c8595c3.jpg",
       "calories": 150,
       "protein": "4",
       "fat": "1",
@@ -401,7 +409,7 @@
         "Смешайте ингредиенты.",
         "Жарьте на сковороде с двух сторон."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/a8/38/25/a838254f4366cef0c64740454c45d28e.jpg",
       "calories": 200,
       "protein": "6",
       "fat": "5",
@@ -424,7 +432,7 @@
         "Смешайте все ингредиенты.",
         "Заправьте соусом."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/94/78/35/947835f68fb555365daf7f87b3e1f018.jpg",
       "calories": 280,
       "protein": "25",
       "fat": "12",
@@ -447,7 +455,7 @@
         "Добавьте остальные ингредиенты.",
         "Тушите 30 минут."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/07/1d/b6/071db69b8790e293221b1a2d5745cb92.jpg",
       "calories": 320,
       "protein": "30",
       "fat": "15",
@@ -469,7 +477,7 @@
         "Добавьте яйца.",
         "Посыпьте зеленью."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/b8/07/df/b807dfb2c5e2a287c9bad6b37ad1969f.jpg",
       "calories": 300,
       "protein": "20",
       "fat": "22",
@@ -492,7 +500,7 @@
         "Смешайте с остальными ингредиентами.",
         "Жарьте на сковороде."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/dc/c3/b6/dcc3b6f485717a4e6a60163b637ded1c.jpg",
       "calories": 180,
       "protein": "5",
       "fat": "3",
@@ -515,7 +523,7 @@
         "Сформируйте котлеты.",
         "Обжарьте до готовности."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/dd/0e/50/dd0e50e0edd7b6867654e82d121fcfcf.jpg",
       "calories": 220,
       "protein": "25",
       "fat": "10",
@@ -536,7 +544,7 @@
         "Отварите картофель.",
         "Разомните с молоком и маслом."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/3a/35/e1/3a35e16677853feb171582c243a1dd6a.jpg",
       "calories": 150,
       "protein": "4",
       "fat": "5",
@@ -559,7 +567,7 @@
         "Добавьте картофель и воду.",
         "В конце добавьте сливки."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/8c/1f/ff/8c1fff00698d1c2d1a0c72bd5c34142f.jpg",
       "calories": 180,
       "protein": "6",
       "fat": "8",
@@ -582,7 +590,7 @@
         "Добавьте желатин.",
         "Разлейте по формам и охладите."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/f0/95/93/f095936321e2b3b0a5746255a12ebf32.jpg",
       "calories": 280,
       "protein": "3",
       "fat": "20",
@@ -605,7 +613,7 @@
         "Измельчите все ингредиенты.",
         "Обжарьте во фритюре."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/83/32/87/833287b93945493273614de57f2ebe67.jpg",
       "calories": 200,
       "protein": "8",
       "fat": "7",
@@ -628,7 +636,7 @@
         "Соберите слоями листы, фарш и соус.",
         "Запекайте 30 минут."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/22/0d/74/220d74dd895a8c07c360bbcea70a8242.jpg",
       "calories": 350,
       "protein": "25",
       "fat": "18",
@@ -651,7 +659,7 @@
         "Выложите в форму.",
         "Запекайте 40 минут."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/e5/9d/6e/e59d6e30c396b4c22a4ae1df6a504ceb.jpg",
       "calories": 120,
       "protein": "4",
       "fat": "3",
@@ -674,7 +682,7 @@
         "Выложите слои печенья, пропитанного кофе, и крема.",
         "Посыпьте какао и охладите."
       ],
-      "image": "https://avatars.mds.yandex.net/i?id=a9e23bb265b8eb4ad411eb36e8066e5511fc92cb-6383479-images-thumbs&n=13",
+      "image": "https://i.pinimg.com/736x/34/1c/5f/341c5f16b6e8c7c48cb05d2f7c058281.jpg",
       "calories": 380,
       "protein": "8",
       "fat": "25",
