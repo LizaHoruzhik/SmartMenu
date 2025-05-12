@@ -14,14 +14,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const sortBy = document.getElementById('sort-by');
     const resetFiltersBtn = document.getElementById('reset-filters');
     
+    // Функция для получения параметра категории из URL
+    function getCategoryFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('category');
+    }
+    
     // Загрузка рецептов
     fetch('recipes.json')
       .then(response => response.json())
       .then(data => {
         allRecipes = data.recipes;
         filteredRecipes = [...allRecipes];
-        renderRecipes();
-        renderPagination();
+        
+        // Применяем фильтр категории из URL, если он есть
+        const urlCategory = getCategoryFromURL();
+        if (urlCategory) {
+            // Находим соответствующий option в select
+            const options = categoryFilter.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value.toLowerCase() === urlCategory.toLowerCase()) {
+                    categoryFilter.value = options[i].value;
+                    break;
+                }
+            }
+        }
+        
+        applyFilters(); // Применяем фильтры (включая категорию из URL)
       })
       .catch(error => {
         console.error('Error loading recipes:', error);
@@ -40,10 +59,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function applyFilters() {
       filteredRecipes = [...allRecipes];
       
-      // Фильтрация по категории
+      // Фильтрация по категории (с учетом регистра)
       if (categoryFilter.value) {
         filteredRecipes = filteredRecipes.filter(recipe => 
-          recipe.category.toLowerCase() === categoryFilter.value
+          recipe.category && recipe.category.toLowerCase() === categoryFilter.value.toLowerCase()
         );
       }
       
@@ -109,6 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
       currentPage = 1;
       renderRecipes();
       renderPagination();
+      
+      // Удаляем параметр категории из URL
+      const url = new URL(window.location);
+      url.searchParams.delete('category');
+      window.history.pushState({}, '', url);
     }
     
     // Отрисовка рецептов
@@ -154,102 +178,97 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Отрисовка пагинации
-function renderPagination() {
-  const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
-  paginationContainer.innerHTML = '';
-  
-  if (totalPages <= 1) return;
-  
-  // Кнопка "Назад"
-  const prevBtn = document.createElement('button');
-  prevBtn.className = 'page-btn';
-  prevBtn.innerHTML = '&larr;';
-  prevBtn.disabled = currentPage === 1;
-  prevBtn.addEventListener('click', () => {
-    if (currentPage > 1) {
-      currentPage--;
-      renderRecipes();
-      renderPagination();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    function renderPagination() {
+      const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
+      paginationContainer.innerHTML = '';
+      
+      if (totalPages <= 1) return;
+      
+      // Кнопка "Назад"
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'page-btn';
+      prevBtn.innerHTML = '&larr;';
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderRecipes();
+          renderPagination();
+        }
+      });
+      paginationContainer.appendChild(prevBtn);
+      
+      // Нумерация страниц
+      const maxVisiblePages = 5;
+      let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+      let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+      
+      if (endPage - startPage + 1 < maxVisiblePages) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+      }
+      
+      if (startPage > 1) {
+        const firstPageBtn = document.createElement('button');
+        firstPageBtn.className = 'page-btn';
+        firstPageBtn.textContent = '1';
+        firstPageBtn.addEventListener('click', () => {
+          currentPage = 1;
+          renderRecipes();
+          renderPagination();
+        });
+        paginationContainer.appendChild(firstPageBtn);
+        
+        if (startPage > 2) {
+          const ellipsis = document.createElement('span');
+          ellipsis.className = 'pagination-ellipsis';
+          ellipsis.textContent = '...';
+          paginationContainer.appendChild(ellipsis);
+        }
+      }
+      
+      for (let i = startPage; i <= endPage; i++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+        pageBtn.textContent = i;
+        pageBtn.addEventListener('click', () => {
+          currentPage = i;
+          renderRecipes();
+          renderPagination();
+        });
+        paginationContainer.appendChild(pageBtn);
+      }
+      
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          const ellipsis = document.createElement('span');
+          ellipsis.className = 'pagination-ellipsis';
+          ellipsis.textContent = '...';
+          paginationContainer.appendChild(ellipsis);
+        }
+        
+        const lastPageBtn = document.createElement('button');
+        lastPageBtn.className = 'page-btn';
+        lastPageBtn.textContent = totalPages;
+        lastPageBtn.addEventListener('click', () => {
+          currentPage = totalPages;
+          renderRecipes();
+          renderPagination();
+        });
+        paginationContainer.appendChild(lastPageBtn);
+      }
+      
+      // Кнопка "Вперед"
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'page-btn';
+      nextBtn.innerHTML = '&rarr;';
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderRecipes();
+          renderPagination();
+        }
+      });
+      paginationContainer.appendChild(nextBtn);
     }
-  });
-  paginationContainer.appendChild(prevBtn);
-  
-  // Нумерация страниц
-  const maxVisiblePages = 5;
-  let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-  let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-  
-  if (endPage - startPage + 1 < maxVisiblePages) {
-    startPage = Math.max(1, endPage - maxVisiblePages + 1);
-  }
-  
-  if (startPage > 1) {
-    const firstPageBtn = document.createElement('button');
-    firstPageBtn.className = 'page-btn';
-    firstPageBtn.textContent = '1';
-    firstPageBtn.addEventListener('click', () => {
-      currentPage = 1;
-      renderRecipes();
-      renderPagination();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    paginationContainer.appendChild(firstPageBtn);
-    
-    if (startPage > 2) {
-      const ellipsis = document.createElement('span');
-      ellipsis.className = 'pagination-ellipsis';
-      ellipsis.textContent = '...';
-      paginationContainer.appendChild(ellipsis);
-    }
-  }
-  
-  for (let i = startPage; i <= endPage; i++) {
-    const pageBtn = document.createElement('button');
-    pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-    pageBtn.textContent = i;
-    pageBtn.addEventListener('click', () => {
-      currentPage = i;
-      renderRecipes();
-      renderPagination();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    paginationContainer.appendChild(pageBtn);
-  }
-  
-  if (endPage < totalPages) {
-    if (endPage < totalPages - 1) {
-      const ellipsis = document.createElement('span');
-      ellipsis.className = 'pagination-ellipsis';
-      ellipsis.textContent = '...';
-      paginationContainer.appendChild(ellipsis);
-    }
-    
-    const lastPageBtn = document.createElement('button');
-    lastPageBtn.className = 'page-btn';
-    lastPageBtn.textContent = totalPages;
-    lastPageBtn.addEventListener('click', () => {
-      currentPage = totalPages;
-      renderRecipes();
-      renderPagination();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    paginationContainer.appendChild(lastPageBtn);
-  }
-  
-  // Кнопка "Вперед"
-  const nextBtn = document.createElement('button');
-  nextBtn.className = 'page-btn';
-  nextBtn.innerHTML = '&rarr;';
-  nextBtn.disabled = currentPage === totalPages;
-  nextBtn.addEventListener('click', () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      renderRecipes();
-      renderPagination();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  });
-  paginationContainer.appendChild(nextBtn);
-}
-  });
+});
