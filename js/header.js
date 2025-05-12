@@ -160,4 +160,30 @@ document.addEventListener('DOMContentLoaded', function() {
       container.appendChild(errorElement);
     });
   }
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Закрываем мобильное меню, если оно открыто
+      const burgerMenu = document.querySelector('.burger-menu');
+      if (burgerMenu && burgerMenu.classList.contains('open')) {
+        burgerMenu.classList.remove('open');
+        document.querySelector('.mobile-menu').classList.remove('active');
+      }
+    }
+  });
+});
 });
