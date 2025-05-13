@@ -195,7 +195,7 @@ button:focus, select:focus {
 
 /* Responsive Grid */
 
-@media (min-width: 1441px) {
+@media (min-width: 1440px) {
   body {
     position: relative;
   }
