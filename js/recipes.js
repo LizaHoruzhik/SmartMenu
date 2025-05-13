@@ -14,6 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const sortBy = document.getElementById('sort-by');
     const resetFiltersBtn = document.getElementById('reset-filters');
     
+    // Функция плавной прокрутки вверх
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    
     // Функция для получения параметра категории из URL
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
@@ -30,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Применяем фильтр категории из URL, если он есть
         const urlCategory = getCategoryFromURL();
         if (urlCategory) {
-            // Находим соответствующий option в select
             const options = categoryFilter.options;
             for (let i = 0; i < options.length; i++) {
                 if (options[i].value.toLowerCase() === urlCategory.toLowerCase()) {
@@ -40,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        applyFilters(); // Применяем фильтры (включая категорию из URL)
+        applyFilters();
       })
       .catch(error => {
         console.error('Error loading recipes:', error);
@@ -59,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function applyFilters() {
       filteredRecipes = [...allRecipes];
       
-      // Фильтрация по категории (с учетом регистра)
+      // Фильтрация по категории
       if (categoryFilter.value) {
         filteredRecipes = filteredRecipes.filter(recipe => 
           recipe.category && recipe.category.toLowerCase() === categoryFilter.value.toLowerCase()
@@ -115,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
       currentPage = 1;
       renderRecipes();
       renderPagination();
+      scrollToTop(); // Прокрутка вверх после применения фильтров
     }
     
     // Сброс фильтров
@@ -128,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
       currentPage = 1;
       renderRecipes();
       renderPagination();
+      scrollToTop(); // Прокрутка вверх после сброса фильтров
       
       // Удаляем параметр категории из URL
       const url = new URL(window.location);
@@ -135,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
       window.history.pushState({}, '', url);
     }
     
-    // Отрисовка рецептов с применением стилей
+    // Отрисовка рецептов
     function renderRecipes() {
       const start = (currentPage - 1) * recipesPerPage;
       const end = start + recipesPerPage;
@@ -148,7 +157,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
-      // Создаем контейнер для карточек с grid-разметкой
       const cardsGrid = document.createElement('div');
       cardsGrid.className = 'recipes-grid';
       
@@ -213,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
       recipesContainer.appendChild(cardsGrid);
     }
     
-    // Отрисовка пагинации (остается без изменений)
+    // Отрисовка пагинации
     function renderPagination() {
       const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
       paginationContainer.innerHTML = '';
@@ -230,6 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
           currentPage--;
           renderRecipes();
           renderPagination();
+          scrollToTop(); // Прокрутка вверх при перелистывании
         }
       });
       paginationContainer.appendChild(prevBtn);
@@ -251,6 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
           currentPage = 1;
           renderRecipes();
           renderPagination();
+          scrollToTop(); // Прокрутка вверх при перелистывании
         });
         paginationContainer.appendChild(firstPageBtn);
         
@@ -270,6 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
           currentPage = i;
           renderRecipes();
           renderPagination();
+          scrollToTop(); // Прокрутка вверх при перелистывании
         });
         paginationContainer.appendChild(pageBtn);
       }
@@ -289,6 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
           currentPage = totalPages;
           renderRecipes();
           renderPagination();
+          scrollToTop(); // Прокрутка вверх при перелистывании
         });
         paginationContainer.appendChild(lastPageBtn);
       }
@@ -303,6 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
           currentPage++;
           renderRecipes();
           renderPagination();
+          scrollToTop(); // Прокрутка вверх при перелистывании
         }
       });
       paginationContainer.appendChild(nextBtn);
