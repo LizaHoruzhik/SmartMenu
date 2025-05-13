@@ -1,31 +1,34 @@
 :root {
-  /* Light theme colors */
-  --background: white;
-  --main: #5E7E5E;
-  --text: #333;
-  --text-on-main: #5E7E5E;
-  --border: rgb(212, 212, 212);
-  --header-bg: white;
-  --nav-link: #5E7E5E;
-  --burger-color: #5E7E5E;
-  --card-bg: white;
-  --footer-bg: white;
-  color-scheme: light;
+    /* Light theme colors */
+    --background: white;
+    --main: #5E7E5E;
+    --text: #333;
+    --text-on-main: #5E7E5E;
+    --border: rgb(212, 212, 212);
+    --header-bg: white;
+    --nav-link: #5E7E5E;
+    --burger-color: #5E7E5E;
+    --card-bg: white;
+    --footer-bg: white;
+    --accent: #f0f0f0;
+    --error: #d32f2f;
+    color-scheme: light;
 }
 
 [data-theme="dark"] {
-  /* Dark theme colors */
-  --background: #5E7E5E;
-  --main: white;
-  --text: white;
-  --text-on-main: rgb(140, 108, 108);
-  --border: white;
-  --header-bg: #5E7E5E;
-  --nav-link: white;
-  --burger-color: white;
-  --card-bg: #678b67;
-  --footer-bg: #5E7E5E;
-  color-scheme: dark;
+    /* Dark theme colors */
+    --background: #5E7E5E;
+    --main: white;
+    --text: white;
+    --text-on-main: white;
+    --border: white;
+    --header-bg: #5E7E5E;
+    --nav-link: white;
+    --burger-color: white;
+    --card-bg: #678b67;
+    --footer-bg: #5E7E5E;
+    --accent: #5E7E5E;
+    color-scheme: dark;
 }
 
 * {
